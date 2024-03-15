@@ -4,7 +4,7 @@ export default data = [
     {
         id: 1,
         image: require('../../../assets/icon_dark.png'),
-        text: 'Lorem Ipsum dolor sit amter',
+        text: 'Sejam bem vindos!',
         textColor: 'white',
         backgroundColor: 'black',
         style: 'light'
