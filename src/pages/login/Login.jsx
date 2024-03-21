@@ -12,7 +12,7 @@ const LoginSchema = Yup.object().shape({
     pass: Yup.string().required('Senha é obrigatório.'),
 });
 
-export function LoginScreen() {
+export function LoginScreen({ navigation }) {
 
     return (
         <SafeAreaView style={[style.container]}>
@@ -31,7 +31,11 @@ export function LoginScreen() {
                 }}
                 validationSchema={LoginSchema}
                 onSubmit={(values) => {
-                    Alert.alert("Dados", JSON.stringify(values))
+                    Alert.alert("Dados", JSON.stringify(values));
+
+                    setTimeout(() => {
+                        navigation.replace('loading');
+                    }, 5000);
                 }}
                 >
                     {({ values, errors, touched, handleChange, setFieldTouched, isValid, handleSubmit }) => (

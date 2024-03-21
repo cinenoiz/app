@@ -9,8 +9,8 @@ export default function LoadingScreen() {
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            navigation.replace('login');
-        }, 3000);
+            navigation.replace('devs');
+        }, 2000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -20,7 +20,7 @@ export default function LoadingScreen() {
             <StatusBar style="auto" />
             <View style={styles.content}>
                 <Image source={require('../../../assets/logo_ntxt.png')} style={styles.image} />
-                <ActivityIndicator style={styles.spinner} size="large" color="blue" />
+                <ActivityIndicator style={styles.spinner} size="large" color="black" />
             </View>
         </SafeAreaView>
     );

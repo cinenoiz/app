@@ -2,9 +2,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import style from "./Style";
 import data from './data';
 import RenderItem from "./RenderItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Image, Text, TouchableOpacity } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function OnboardingScreen({ navigation }) {
 
@@ -12,12 +13,12 @@ export default function OnboardingScreen({ navigation }) {
     const [styleButton, setStyleButton] = useState( {
         position: 'absolute',
         bottom: 180,
-        width: 120,
-        height: 120,
+        width: 100,
+        height: 100,
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 100,
+        borderRadius: 80,
     })
     const [textButton, setTextButton] = useState(<Image source={require('../../../assets/ArrowIcon.png')} />);
 
@@ -29,21 +30,47 @@ export default function OnboardingScreen({ navigation }) {
                 position: 'absolute',
                 bottom: 180,
                 width: '75%',
-                height: 120,
-                backgroundColor: 'white',
+                height: 100,
+                backgroundColor: 'black',
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: 100,
+                borderRadius: 80,
             });
-            setTextButton(<Text style={style.textButton}>Começar Agora!</Text>)
+            setTextButton(<Text style={[style.textButton, { color: 'white' }]}>Começar Agora!</Text>)
         }
 
         if (index === data.length - 1) {
+            _storeData = async () => {
+                try {
+                  await AsyncStorage.setItem(
+                    'onboarding',
+                    'false',
+                  );
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            _storeData();
+
             navigation.replace('login')
         }
 
-
     }
+
+    useEffect(() => {
+        _retrieveData = async () => {
+            try {
+                const value = await AsyncStorage.getItem('onboarding');
+                if (value !== null) {
+                    navigation.replace('login');
+                }
+            } catch (error) {
+
+            }
+        };
+        _retrieveData();
+    }, [])
 
     return (
         <SafeAreaView style={style.container}>
