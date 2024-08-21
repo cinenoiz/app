@@ -17,7 +17,7 @@ export default StyleSheet.create({
         fontWeight: '600'
     },
     headerdiv: {
-        flex: 1,
+        flex: 0.5,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -31,5 +31,16 @@ export default StyleSheet.create({
         fontSize: 15,
         fontWeight: '600',
         color: '#FFF'
+    },
+    filmesDiv: {
+        flexDirection: 'column',
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
+    tituloFilme: {
+        fontSize: 18,
+        width: '90%',
+        textAlign: 'left'
     }
 });
