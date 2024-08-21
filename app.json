@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "app",
-    "slug": "app",
+    "slug": "cinenoizapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,8 +30,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "f4201016-d244-4829-b368-d7d6021abba5"
+        "projectId": "7635a4c9-b6aa-4176-b9bf-53be82bc2775"
       }
-    }
+    },
+    "owner": "yotozangue"
   }
 }

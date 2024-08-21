@@ -33,8 +33,9 @@ export function LoginScreen({ navigation }) {
                 onSubmit={(values) => {
                     Alert.alert("Dados", JSON.stringify(values));
 
-                    
-                    navigation.replace('loading');
+                    setTimeout(() => {
+                        navigation.replace('loading');
+                    }, 5000);
                 }}
                 >
                     {({ values, errors, touched, handleChange, setFieldTouched, isValid, handleSubmit }) => (
@@ -69,9 +70,7 @@ export function LoginScreen({ navigation }) {
 
 
                 <View style={style.information}>
-                    <TouchableOpacity onPress={() => {
-                        navigation.replace('signup')
-                    }}>
+                    <TouchableOpacity>
                         <Text style={style.information_choice}>Criar nova conta</Text>
                     </TouchableOpacity>
                 </View>

@@ -9,7 +9,7 @@ export default function LoadingScreen() {
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            navigation.replace('home');
+            navigation.replace('devs');
         }, 2000);
 
         return () => clearTimeout(timeout);
